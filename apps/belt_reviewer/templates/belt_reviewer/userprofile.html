@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <a href="/belt_reviewer">Home</a>
+    <br />
+    <a href="/belt_reviewer/logOut">Log Out</a>
+    <br />
+    <h3>User Alias: {{user.alias}}</h3>
+    <p>Name: {{user.name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Review Count: {{user.review_count}}</p>
+    <br />
+    <h4>Posted Reviews on the following books</h4>
+    {% for review in userReviews %}
+    <p><a href="/belt_reviewer/books/{{review.book.id}}">{{review.book.title}}</a></p>
+    {% endfor %}
+</body>
+</html>

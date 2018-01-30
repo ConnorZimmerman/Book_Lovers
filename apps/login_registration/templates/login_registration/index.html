@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h3>Welcome!</h3>
+    <h4>Registration</h4>
+    <form action="/registration/validation" method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name" />
+        <br />
+        Alias: <input type="text" name="alias" />
+        <br />
+        Email: <input type="text" name="email" />
+        <br />
+        Password: <input type="password" name="password" />
+        <br />
+        <br />
+        *Password should be at least 8 characters
+        <br />
+        <br />
+        Confirm Password: <input type="password" name="confirmPassword" />
+        <br />
+        <input type="submit" value="Register" />
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+    {% ifequal message.tags "Registration error" %}
+    <p style="color: red">*{{message}}</p>
+    {% endifequal %}
+    {% endfor %}
+    {% endif %}
+    <br />
+    <h4>Login</h4>
+    <form action="/login/validation" method="post">
+        {% csrf_token %}
+        Email: <input type="text" name="email" />
+        <br />
+        Password: <input type="password" name="password" />
+        <br />
+        <input type="submit" value="Login" />
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+    {% ifequal message.tags "Login error" %}
+    <p style="color: red">*{{message}}</p>
+    {% endifequal %}
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

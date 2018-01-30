@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Belt Reviewer</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt_reviewer/home.css' %}" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <div id="wrapperMain">
+        <div id="wrapperLeft">
+            <a href="/belt_reviewer/books/add">Add Book and Review</a>
+            <br />
+            <a href="/belt_reviewer/logOut">Log Out</a>
+            <h2>Welcome, {{user.alias}}!</h2>
+            <h3>Recent Book Reviews:</h3>
+            {% for review in recentReviews %}
+            <p><a href="/belt_reviewer/books/{{review.book.id}}">{{review.book.title}}</a></p>
+            <p class="rating">Rating: {{review.rating}}</p>
+            {% for i in "iiiii" %}
+            <img src="static/belt_reviewer/media/Gold_Star.svg.png" alt="Star image"/>
+            {% endfor %}
+            <p><a href="/belt_reviewer/user/{{review.user.id}}">{{review.user.alias}}</a> says, <i>{{review.review}}</i></p>
+            <p><i>Posted on {{review.created_at}}</i></p>
+            {% if user.id == review.user.id %}
+            <a href="/belt_reviewer/delete/{{review.id}}">Delete this Review</a>
+            {% endif %}
+            <br />
+            <br />
+            {% endfor %}
+            <br />
+        </div>
+        <div id="bookList">
+            <h3>Other books with reviews:</h3>
+            <div id="bookBox">
+                {% for book in books %}
+                <p><a href="/belt_reviewer/books/{{book.id}}">{{book.title}}</a></p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

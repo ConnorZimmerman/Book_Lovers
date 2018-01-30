@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\apps",
+    "\\apps\\belt_reviewer",
+    "\\apps\\belt_reviewer\\static",
+    "\\apps\\belt_reviewer\\static\\belt_reviewer",
+    "\\apps\\belt_reviewer\\static\\belt_reviewer\\media",
+    "\\apps\\belt_reviewer\\templates\\belt_reviewer",
+    "\\apps\\login_registration\\templates",
+    "\\apps\\login_registration\\templates\\login_registration",
+    "\\BeltReviewer"
+  ],
+  "SelectedNode": "\\apps\\belt_reviewer\\models.py",
+  "PreviewInSolutionExplorer": false
+}

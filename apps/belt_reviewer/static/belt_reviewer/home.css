@@ -1,0 +1,30 @@
+#wrapperMain {
+    width: 960px;
+}
+
+#wrapperLeft{
+    display: inline-block;
+}
+
+#bookList{
+    margin-top: 92px;
+    float: right;
+    vertical-align: top;
+}
+
+#bookBox{
+    border: 2px solid black;
+    width: 300px;
+    height: 200px;
+    overflow: scroll;
+}
+
+img{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.rating{
+    display: inline-block;
+}

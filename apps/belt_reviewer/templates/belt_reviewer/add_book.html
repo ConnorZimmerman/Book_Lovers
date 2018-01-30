@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add Book</title>
+</head>
+<body>
+    <a href="/belt_reviewer">Home</a>
+    <br />
+    <a href="/belt_reviewer/logOut">Log Out</a>
+    <br />
+    <h3>Add a New Book Title and a Review</h3>
+    <form action="/belt_reviewer/books/add/validation" method="post">
+        {% csrf_token %}
+        Book Title: <input type="text" name="title" />
+        <br />
+        Author:
+        <br />
+        Choose From the List: <select name="author">
+            <option></option>
+            {% for author in authors %}
+            <option>{{author.name}}</option>
+            {% endfor %}
+        </select>
+        <br />
+        Or add a new author: <input type="text" name="addAuthor" />
+        <br />
+        Review: <textarea name="review"></textarea>
+        <br />
+        Rating: <select name="rating">
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+        </select>
+        <br />
+        <input type="submit" value="Add Book and Review"/>
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: red">*{{message}}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
